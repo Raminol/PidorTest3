@@ -62,7 +62,8 @@ namespace PidorTest
 
         static void Main(string[] args)   //Выводит вступительный текст и содержит массив вопросов и ответов
         {
-            Console.Title = "Ты хули сюда смотришь, тест делай";
+            Console.Title = "с#_game_of_the_year_ultimate_mega_giga_edition_Cyberpunk2077_Limited_Version_PIDOR_probability";
+            Console.SetWindowSize(120,45); 
 
             Answers[0, 0] = "A"; Answers[0, 1] = "B"; Answers[0, 2] = "C";      //1
             Answers[0, 3] = "-5"; Answers[0, 4] = "3"; Answers[0, 5] = "0";
@@ -140,7 +141,14 @@ namespace PidorTest
         }
 
 
-        static void QuestionManager()  //Позволяет последовательно выводить вопросы в коносль//Содержит условия для вывода результата
+        static void ReplaceLastLine(string new_line)
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.WriteLine(new_line);
+        }
+
+
+            static void QuestionManager()  //Позволяет последовательно выводить вопросы в коносль//Содержит условия для вывода результата
         {
             for (int i = 0; i < 10; i++)
             {
@@ -150,29 +158,58 @@ namespace PidorTest
             if (PidorValue >= 3)
             {
                 DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
-                            "\n|||||||||||||||||||||||||||||||||||||||||||||||||" +
                             "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
-                DelayedText("\n\nПлохие новости, сын...ТЫ ПИДОР!" + "\n\nБЕГИ!" + "\n\nВОН ИЗ ЗАМКА!" + "\n\nНАРОД НЕ ЛЮБИТ ТЕБЯ", 900);
+                ProgressBar();
+                DelayedText("\n\nПлохие новости, сын...ТЫ ПИДОР!" + "\n\nБЕГИ!" + "\n\nВОН ИЗ ЗАМКА!" + "\n\nНАРОД НЕ ЛЮБИТ ТЕБЯ", 1000);
                 Timer();
-                Console.Read();
+                System.Environment.Exit(0);
             }
             else if(PidorValue<2 && PidorValue>-2)
             {
                 DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
-                            "\n|||||||||||||||||||||||||||||||||||||||||||||||||" +
                             "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
+                ProgressBar();
                 DelayedText("Хуй знает что тебе сказать..." + "\n\nНи рыба, ни мясо" + "\n\nНи туда, ни сюда..." + "\n\nСам выберу свою судьбу!", 800);
                 Timer();
-                Console.Read();
+                System.Environment.Exit(0);
             }
             else
             {
-                DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
-                            "\n|||||||||||||||||||||||||||||||||||||||||||||||||" +
-                            "\nТвой Pidor_Value = " + PidorValue.ToString() + "\n\nПоздраляю, ты НЕ пидор", 1400);            //ДОДЕЛАТЬ УСЛОВИЯ ПИДОРА
-                DelayedText("Это все, можешь идти. Закрывай консоль или нажми любую клавишу.", 700);
+                DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString(), 1400);
+                ProgressBar();
+                DelayedText("\nТвой Pidor_Value = " + PidorValue.ToString() + "\n\nПоздраляю, ты НЕ пидор"+
+                            "\nЭто все, можешь идти. Закрывай консоль или нажми любую клавишу.", 700);
                 Console.ReadKey();
+                System.Environment.Exit(0);
             }
+        }
+
+
+        static void ProgressBar()
+        {
+            StringBuilder bar = new StringBuilder("[                         ]");
+            int BarIndex = 1;
+            Random RandomBar = new Random();
+            Console.WriteLine(bar.ToString());
+
+            while (BarIndex < 25)
+            {
+                int Next=RandomBar.Next(1,5);
+                switch (Next)
+                    {
+                    case 1:
+                        BarIndex++;
+                        bar = bar.Replace(' ', '#', 1, BarIndex);
+                    break;
+                    case 2:
+                        BarIndex+=2;
+                        bar = bar.Replace(' ', '#', 1, BarIndex);
+                    break;
+                }
+                ReplaceLastLine( bar.ToString() );
+                Thread.Sleep( RandomBar.Next(100, 250) );
+             }
+
         }
 
 
@@ -185,7 +222,7 @@ namespace PidorTest
 
             for (int time = 2500; time > 0; time -= 80)
             {
-                for (int j = 1; j <= 50; j++)
+                for (int j = 1; j <= 110; j++)
                 {
                     a = str.Next(strArr.Length);
                     Console.Write("{0,2}", strArr[a]);
