@@ -10,6 +10,7 @@ namespace PidorTest
     {
         static int PidorValue = 0;   //очки пидора
         // ты пидор
+        //сам пидор
 
         static string[] Questions = { "Ты любишь постарше или помладше?", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf", "dfdfdf" };
         static string[,] Answers = new string[10, 6];
