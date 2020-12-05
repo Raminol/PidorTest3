@@ -64,7 +64,7 @@ namespace PidorTest
         static void Main(string[] args)   //Выводит вступительный текст и содержит массив вопросов и ответов
         {
             Console.Title = "с#_game_of_the_year_ultimate_mega_giga_edition_Cyberpunk2077_Limited_Version_PIDOR_probability";
-            Console.SetWindowSize(120,45); 
+            Console.SetWindowSize(120, 45); 
 
             Answers[0, 0] = "A"; Answers[0, 1] = "B"; Answers[0, 2] = "C";      //1
             Answers[0, 3] = "-5"; Answers[0, 4] = "5"; Answers[0, 5] = "0";
