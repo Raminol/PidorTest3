@@ -8,6 +8,7 @@ namespace PidorTest
 {
     class Program
     {
+        static bool debug = false; // ТОГГЛ ДЕБАГ РЕЖИМА
         static int PidorValue = 0;   //очки пидора
         // ты пидор
         // сам пидор
@@ -97,23 +98,27 @@ namespace PidorTest
 
 
 
-
+                if (debug) {
+                    TestStartTerms(true);
+                    return;
+                }
 
 
             string[] IntroText = { "Wake up, Neo", "Are you P.I.D.O.R.?", "#5^3$#$@  @! )%#1010012___!",".....Сбой вычисления характеристики P.I.D.O.R", "Необходим новый ввод данных",
                                    "Честно отвечай на вопросы и истина откроется", "Так же как и твое очко\n\n\n\n",
                                    "Приступим..." };
 
-            Matrix();
-            Thread.Sleep(400);
-            Console.Clear();
+                Matrix();
+                Thread.Sleep(400);
+                Console.Clear();
 
-            foreach (string text in IntroText)
-            {
-                DelayedText(text, 600);
-            }
-            Timer();
-            TestStartTerms(true);
+                    foreach (string text in IntroText)
+                    {
+                        DelayedText(text, 600);
+                    }
+
+                Timer();
+                TestStartTerms(true);
         }
 
 
@@ -133,11 +138,13 @@ namespace PidorTest
                     break;
                 }
             }
+
             if (Skip)
             {
                 DelayedText("Ты, тупое уебище, вводи символы на английском языке и строго по вариантам!", 600);
                 StartQuestion(Index);
             }
+
         }
 
 
@@ -149,39 +156,42 @@ namespace PidorTest
 
 
             static void QuestionManager()  //Позволяет последовательно выводить вопросы в коносль//Содержит условия для вывода результата
-        {
-            for (int i = 0; i < 10; i++)
             {
-                StartQuestion(i);
-            }
 
-            if (PidorValue >= 15)
-            {
-                DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
-                            "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
-                ProgressBar();
-                DelayedText("\n\nПлохие новости, сын...ТЫ ПИДОР!" + "\n\nБЕГИ!" + "\n\nВОН ИЗ ЗАМКА!" + "\n\nНАРОД НЕ ЛЮБИТ ТЕБЯ", 1000);
-                Timer();
-                System.Environment.Exit(0);
-            }
-            else if(PidorValue<15 && PidorValue>-15)
-            {
-                DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
-                            "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
-                ProgressBar();
-                DelayedText("Хуй знает что тебе сказать..." + "\n\nНи рыба, ни мясо" + "\n\nНи туда, ни сюда..." + "\n\nСам выбери свою судьбу!", 800);
-                Timer();
-                System.Environment.Exit(0);
-            }
-            else
-            {
-                DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString(), 1400);
-                ProgressBar();
-                DelayedText("\nТвой Pidor_Value = " + PidorValue.ToString() + "\n\nПоздраляю, ты НЕ пидор"+
-                            "\nЭто все, можешь идти. Закрывай консоль или нажми любую клавишу.", 700);
-                Console.ReadKey();
-                System.Environment.Exit(0);
-            }
+                //Console.ReadKey(true);
+
+                    for (int i = 0; i < 10; i++)
+                    {
+                        StartQuestion(i);
+                    }
+
+                    if (PidorValue >= 15)
+                    {
+                        DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
+                                    "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
+                        ProgressBar();
+                        DelayedText("\n\nПлохие новости, сын...ТЫ ПИДОР!" + "\n\nБЕГИ!" + "\n\nВОН ИЗ ЗАМКА!" + "\n\nНАРОД НЕ ЛЮБИТ ТЕБЯ", 1000);
+                        Timer();
+                        System.Environment.Exit(0);
+                    }
+                    else if(PidorValue<15 && PidorValue>-15)
+                    {
+                        DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
+                                    "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
+                        ProgressBar();
+                        DelayedText("Хуй знает что тебе сказать..." + "\n\nНи рыба, ни мясо" + "\n\nНи туда, ни сюда..." + "\n\nСам выбери свою судьбу!", 800);
+                        Timer();
+                        System.Environment.Exit(0);
+                    }
+                    else
+                    {
+                        DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString(), 1400);
+                        ProgressBar();
+                        DelayedText("\nТвой Pidor_Value = " + PidorValue.ToString() + "\n\nПоздраляю, ты НЕ пидор"+
+                                    "\nЭто все, можешь идти. Закрывай консоль или нажми любую клавишу.", 700);
+                        Console.ReadKey();
+                        System.Environment.Exit(0);
+                    }
         }
 
 
@@ -190,25 +200,26 @@ namespace PidorTest
             StringBuilder bar = new StringBuilder("[                         ]");
             int BarIndex = 1;
             Random RandomBar = new Random();
-            Console.WriteLine(bar.ToString());
 
-            while (BarIndex < 25)
-            {
-                int Next=RandomBar.Next(1,5);
-                switch (Next)
+                Console.WriteLine(bar.ToString());
+
+                    while (BarIndex < 25)
                     {
-                    case 1:
-                        BarIndex++;
-                        bar = bar.Replace(' ', '#', 1, BarIndex);
-                    break;
-                    case 2:
-                        BarIndex+=2;
-                        bar = bar.Replace(' ', '#', 1, BarIndex);
-                    break;
-                }
-                ReplaceLastLine( bar.ToString() );
-                Thread.Sleep( RandomBar.Next(100, 250) );
-             }
+                        int Next=RandomBar.Next(1,5);
+                        switch (Next)
+                            {
+                            case 1:
+                                BarIndex++;
+                                bar = bar.Replace(' ', '#', 1, BarIndex);
+                            break;
+                            case 2:
+                                BarIndex+=2;
+                                bar = bar.Replace(' ', '#', 1, BarIndex);
+                            break;
+                        }
+                        ReplaceLastLine( bar.ToString() );
+                        Thread.Sleep( RandomBar.Next(100, 250) );
+                     }
 
         }
 
@@ -218,18 +229,19 @@ namespace PidorTest
             int a = 0;
             string[] strArr = { " ", "!", "@", "#", " ", "$", "%", "^", " ", "&", "*", "-", " ", "+", "|", "<", " ", ">", "?", "№" };
             Random str = new Random();
-            Console.ForegroundColor = ConsoleColor.Green;
 
-            for (int time = 2500; time > 0; time -= 80)
-            {
-                for (int j = 1; j <= 110; j++)
-                {
-                    a = str.Next(strArr.Length);
-                    Console.Write("{0,2}", strArr[a]);
-                }
-                Console.WriteLine();
-                Thread.Sleep(80);
-            }
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                    for (int time = 2500; time > 0; time -= 80)
+                    {
+                        for (int j = 1; j <= 110; j++)
+                        {
+                            a = str.Next(strArr.Length);
+                            Console.Write("{0,2}", strArr[a]);
+                        }
+                        Console.WriteLine();
+                        Thread.Sleep(80);
+                    }
 
         }
 
@@ -241,18 +253,18 @@ namespace PidorTest
                 Console.WriteLine(Counter.ToString() + "...");
                 System.Threading.Thread.Sleep(1000);
             }
-
         }
 
 
         static void DelayedText(string text, int delay) //Функция вывода текста на экран побуквенно
         {
 
-            foreach (char letter in text)
-            {
-                Console.Write(letter);
-                Thread.Sleep(50);
-            }
+                foreach (char letter in text)
+                {
+                    Console.Write(letter);
+                    Thread.Sleep(50);
+                }
+
             Console.Write("\n");
             Thread.Sleep(delay);
         }
@@ -260,27 +272,29 @@ namespace PidorTest
 
         static void TestStartTerms(bool first_time)  //Содержит условия для очистки консоли и запуска теста
         {
-            if (first_time) { DelayedText("Небольшая ремарка: ответом пиши в консоль букву варианта (А, В, С и тд). \n" +
-                                          "В противном случае результат будет неверен." +
-                                          "\nТак, например, если вариант предлагает ответ /А/ - пиши /А/ с учетом изначального регистра(не /а/)." +
-                                          "\nБукву варианта ответа пиши на АНГЛИЙСКОЙ раскладке иначе консоль пошлет тебя нахер."+
-                                          "\nМне просто было лень ебаться с форматированием текста." +
-                                          "\n\nЕсли ты все понял нажми себе на пупок или <ENTER> чтобы продолжить",600); }
+                if (first_time) { DelayedText("Небольшая ремарка: ответом пиши в консоль букву варианта (А, В, С и тд). \n" +
+                                              "В противном случае результат будет неверен." +
+                                              "\nТак, например, если вариант предлагает ответ /А/ - пиши /А/ с учетом изначального регистра(не /а/)." +
+                                              "\nБукву варианта ответа пиши на АНГЛИЙСКОЙ раскладке иначе консоль пошлет тебя нахер."+
+                                              "\nМне просто было лень ебаться с форматированием текста." +
+                                              "\n\nЕсли ты все понял нажми себе на пупок или <ENTER> чтобы продолжить",600); 
+                }
 
+            
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
-            if (keyInfo.Key == ConsoleKey.Enter)
-            {
-                Console.Clear();
-                QuestionManager();
-            }
-            else
-            {
-                DelayedText("\nЯ пока не знаю пидор ты или нет, но умом явно не блещешь\nНажми <ENTER> или катись колбаской",600);
-                TestStartTerms(false);
-            }
-
-            Console.Read();
+                if (keyInfo.Key == ConsoleKey.Enter && Console.ReadLine() == "")
+                {
+                    Console.Clear();
+                    QuestionManager();
+                }
+                else
+                {
+                    DelayedText("\nЯ пока не знаю пидор ты или нет, но умом явно не блещешь\nНажми <ENTER> или катись колбаской",600);
+                    TestStartTerms(false);
+                }
+            
+            
         }
     }
 }
