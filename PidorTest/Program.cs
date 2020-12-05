@@ -66,34 +66,34 @@ namespace PidorTest
             Console.SetWindowSize(120,45); 
 
             Answers[0, 0] = "A"; Answers[0, 1] = "B"; Answers[0, 2] = "C";      //1
-            Answers[0, 3] = "-5"; Answers[0, 4] = "3"; Answers[0, 5] = "0";
+            Answers[0, 3] = "-5"; Answers[0, 4] = "5"; Answers[0, 5] = "0";
 
             Answers[1, 0] = "A"; Answers[1, 1] = "B"; Answers[1, 2] = "C";      //2
-            Answers[1, 3] = "5"; Answers[1, 4] = "2"; Answers[1, 5] = "10";
+            Answers[1, 3] = "0"; Answers[1, 4] = "5"; Answers[1, 5] = "10";
 
             Answers[2, 0] = "A"; Answers[2, 1] = "B"; Answers[2, 2] = "C";      //3
-            Answers[2, 3] = "-5"; Answers[2, 4] = "2"; Answers[2, 5] = "0";
+            Answers[2, 3] = "-10"; Answers[2, 4] = "-5"; Answers[2, 5] = "0";
 
             Answers[3, 0] = "A"; Answers[3, 1] = "B"; Answers[3, 2] = "C";      //4
-            Answers[3, 3] = "5"; Answers[3, 4] = "5"; Answers[3, 5] = "3";
+            Answers[3, 3] = "2"; Answers[3, 4] = "5"; Answers[3, 5] = "10";
 
             Answers[4, 0] = "A"; Answers[4, 1] = "B"; Answers[4, 2] = "C";      //5
-            Answers[4, 3] = "-2"; Answers[4, 4] = "-5"; Answers[4, 5] = "2";
+            Answers[4, 3] = "-5"; Answers[4, 4] = "-5"; Answers[4, 5] = "5";
 
             Answers[5, 0] = "A"; Answers[5, 1] = "B"; Answers[5, 2] = "C";      //6
-            Answers[5, 3] = "-5"; Answers[5, 4] = "5"; Answers[5, 5] = "-2";
+            Answers[5, 3] = "-5"; Answers[5, 4] = "5"; Answers[5, 5] = "0";
 
             Answers[6, 0] = "A"; Answers[6, 1] = "B"; Answers[6, 2] = "C";      //7
-            Answers[6, 3] = "-5"; Answers[6, 4] = "-10"; Answers[6, 5] = "10";
+            Answers[6, 3] = "-10"; Answers[6, 4] = "10"; Answers[6, 5] = "0";
 
             Answers[7, 0] = "A"; Answers[7, 1] = "B"; Answers[7, 2] = "C";      //8
-            Answers[7, 3] = "-5"; Answers[7, 4] = "-5"; Answers[7, 5] = "7";
+            Answers[7, 3] = "-5"; Answers[7, 4] = "0"; Answers[7, 5] = "10";
 
             Answers[8, 0] = "A"; Answers[8, 1] = "B"; Answers[8, 2] = "C";      //9
-            Answers[8, 3] = "-4"; Answers[8, 4] = "1"; Answers[8, 5] = "5";
+            Answers[8, 3] = "-5"; Answers[8, 4] = "5"; Answers[8, 5] = "10";
 
             Answers[9, 0] = "A"; Answers[9, 1] = "B"; Answers[9, 2] = "C";      //10
-            Answers[9, 3] = "10"; Answers[9, 4] = "10"; Answers[9, 5] = "-5";
+            Answers[9, 3] = "5"; Answers[9, 4] = "20"; Answers[9, 5] = "-10";
 
 
 
@@ -155,7 +155,7 @@ namespace PidorTest
                 StartQuestion(i);
             }
 
-            if (PidorValue >= 3)
+            if (PidorValue >= 15)
             {
                 DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
                             "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
@@ -164,12 +164,12 @@ namespace PidorTest
                 Timer();
                 System.Environment.Exit(0);
             }
-            else if(PidorValue<2 && PidorValue>-2)
+            else if(PidorValue<15 && PidorValue>-15)
             {
                 DelayedText("ВЫЧИСЛЯЮ ВЕРОЯТНОСТЬ" + "\nЗАПУСКАЮ ФОРМУЛУ" + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() + "\n" + PidorValue.ToString() +
                             "\nТвой Pidor_Value = " + PidorValue.ToString(), 1400);
                 ProgressBar();
-                DelayedText("Хуй знает что тебе сказать..." + "\n\nНи рыба, ни мясо" + "\n\nНи туда, ни сюда..." + "\n\nСам выберу свою судьбу!", 800);
+                DelayedText("Хуй знает что тебе сказать..." + "\n\nНи рыба, ни мясо" + "\n\nНи туда, ни сюда..." + "\n\nСам выбери свою судьбу!", 800);
                 Timer();
                 System.Environment.Exit(0);
             }
